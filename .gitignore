@@ -22,5 +22,5 @@
 hs_err_pid*
 
 # Build directories.
-.gradle/
-build/
+jline/.gradle/
+jline/build/
