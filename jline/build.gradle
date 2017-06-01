@@ -1,0 +1,46 @@
+/*
+
+######################################################################
+#
+# File: build.gradle
+#
+# Description: Main buildfile for the project.
+#
+# Copyright (c) 2017, Adam W. Dace.  All Rights Reserved.
+# Please see the accompanying LICENSE file for license information.
+#
+######################################################################
+
+*/
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'org.apache.felix.gogo.jline.Main'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile "org.apache.felix:org.apache.felix.gogo.runtime:1.0.2"
+    compile "org.jline:jline-builtins:3.2.0"
+    compile "org.osgi:org.osgi.framework:1.8.0"
+    compile "org.osgi:org.osgi.service.startlevel:1.1.0"
+}
+
+jar {
+    baseName = 'testing'
+    version =  '0.1'
+
+    manifest {
+        attributes(
+            'Class-Path': configurations.compile { it.getName() }.join(' '),
+            'Main-Class': 'org.apache.felix.gogo.jline.Main'
+        )
+    }
+}
+

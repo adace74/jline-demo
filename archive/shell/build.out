@@ -1,0 +1,378 @@
+:compileJava
+Download https://repo1.maven.org/maven2/org/osgi/org.osgi.service.startlevel/1.1.0/org.osgi.service.startlevel-1.1.0.pom
+Download https://repo1.maven.org/maven2/org/osgi/org.osgi.service.startlevel/1.1.0/org.osgi.service.startlevel-1.1.0.jar
+Note: /Users/adace/gitwork/jline3-demo/shell/src/main/java/org/apache/felix/gogo/shell/Converters.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+:processResources
+:classes
+:jar
+:startScripts
+:distTar
+:distZip
+:assemble
+:compileTestJava/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:23: error: package junit.framework does not exist
+import junit.framework.TestCase;
+                      ^
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:26: error: package org.junit does not exist
+import org.junit.Before;
+                ^
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:27: error: package org.junit does not exist
+import org.junit.Test;
+                ^
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:37: error: cannot find symbol
+    @Before
+     ^
+  symbol:   class Before
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:45: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:55: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:71: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:87: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:102: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:126: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:133: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:143: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:152: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:162: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:173: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:182: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:192: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:201: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:211: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:226: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:51: error: cannot find symbol
+        TestCase.assertEquals("cmd1", hi.next());
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:52: error: cannot find symbol
+        TestCase.assertFalse(hi.hasNext());
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:66: error: cannot find symbol
+            TestCase.assertEquals("cmd" + i, hi.next());
+            ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:68: error: cannot find symbol
+        TestCase.assertFalse(hi.hasNext());
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:82: error: cannot find symbol
+            TestCase.assertEquals("cmd" + i, hi.next());
+            ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:84: error: cannot find symbol
+        TestCase.assertFalse(hi.hasNext());
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:89: error: cannot find symbol
+        TestCase.assertEquals(COMMANDS[3], history.evaluate("!!"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:91: error: cannot find symbol
+        TestCase.assertEquals(COMMANDS[3], history.evaluate("!-1"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:92: error: cannot find symbol
+        TestCase.assertEquals(COMMANDS[2], history.evaluate("!-2"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:93: error: cannot find symbol
+        TestCase.assertEquals(COMMANDS[1], history.evaluate("!-3"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:94: error: cannot find symbol
+        TestCase.assertEquals(COMMANDS[0], history.evaluate("!-4"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:96: error: cannot find symbol
+        TestCase.assertEquals(COMMANDS[0], history.evaluate("!1"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:97: error: cannot find symbol
+        TestCase.assertEquals(COMMANDS[1], history.evaluate("!2"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:98: error: cannot find symbol
+        TestCase.assertEquals(COMMANDS[2], history.evaluate("!3"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:99: error: cannot find symbol
+        TestCase.assertEquals(COMMANDS[3], history.evaluate("!4"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:106: error: cannot find symbol
+            TestCase.fail("Expected IllegalArgumentException");
+            ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:113: error: cannot find symbol
+            TestCase.fail("Expected IllegalArgumentException");
+            ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:120: error: cannot find symbol
+            TestCase.fail("Expected IllegalArgumentException");
+            ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:128: error: cannot find symbol
+        TestCase.assertEquals("ls xconfig", history.evaluate("^more^ls^"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:129: error: cannot find symbol
+        TestCase.assertEquals("ls xconfig", history.evaluate("^more^ls"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:130: error: cannot find symbol
+        TestCase.assertEquals("ls -l xconfig", history.evaluate("^more^ls -l"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:137: error: cannot find symbol
+            TestCase.fail("Expected failure for impossible replacement");
+            ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:145: error: cannot find symbol
+        TestCase.assertEquals("ls xconfig", history.evaluate("!!:s?more?ls?"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:146: error: cannot find symbol
+        TestCase.assertEquals("ls xconfig", history.evaluate("!!:s/more/ls"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:147: error: cannot find symbol
+        TestCase.assertEquals("ls -l xconfig", history.evaluate("!!:s^more^ls -l"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:149: error: cannot find symbol
+        TestCase.assertEquals("mare xconfig", history.evaluate("!!:s?o?a?"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:156: error: cannot find symbol
+            TestCase.fail("Expected failure for impossible replacement");
+            ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:164: error: cannot find symbol
+        TestCase.assertEquals("mire xcinfig", history.evaluate("!!:gs?o?i?"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:165: error: cannot find symbol
+        TestCase.assertEquals("mire xcinfig", history.evaluate("!!:gs/o/i"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:166: error: cannot find symbol
+        TestCase.assertEquals("mi-xre xci-xnfig", history.evaluate("!!:gs^o^i-x"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:168: error: cannot find symbol
+        TestCase.assertEquals("mire xcinfig", history.evaluate("!!:as?o?i?"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:169: error: cannot find symbol
+        TestCase.assertEquals("mire xcinfig", history.evaluate("!!:as/o/i"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:170: error: cannot find symbol
+        TestCase.assertEquals("mi-xre xci-xnfig", history.evaluate("!!:as^o^i-x"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:175: error: cannot find symbol
+        TestCase.assertEquals("ls config", history.evaluate("!-2:s?more?ls?"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:176: error: cannot find symbol
+        TestCase.assertEquals("ls config", history.evaluate("!-2:s/more/ls"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:177: error: cannot find symbol
+        TestCase.assertEquals("ls -l config", history.evaluate("!-2:s^more^ls -l"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:179: error: cannot find symbol
+        TestCase.assertEquals("mare config", history.evaluate("!-2:s?o?a?"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:186: error: cannot find symbol
+            TestCase.fail("Expected failure for impossible replacement");
+            ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:194: error: cannot find symbol
+        TestCase.assertEquals("ls config", history.evaluate("!-2:s?more?ls?"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:195: error: cannot find symbol
+        TestCase.assertEquals("ls config", history.evaluate("!-2:s/more/ls"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:196: error: cannot find symbol
+        TestCase.assertEquals("ls -l config", history.evaluate("!-2:s^more^ls -l"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:198: error: cannot find symbol
+        TestCase.assertEquals("mare config", history.evaluate("!-2:s?o?a?"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:205: error: cannot find symbol
+            TestCase.fail("Expected failure for impossible replacement");
+            ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:213: error: cannot find symbol
+        TestCase.assertEquals("ls", history.evaluate("!?s"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:214: error: cannot find symbol
+        TestCase.assertEquals("ls", history.evaluate("!?s?"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:218: error: cannot find symbol
+            TestCase.fail("IllegalArgumentException expected");
+            ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:223: error: cannot find symbol
+        TestCase.assertEquals("xs", history.evaluate("!?s?:s/l/x/"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:228: error: cannot find symbol
+        TestCase.assertEquals("cd home", history.evaluate("!cd"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:229: error: cannot find symbol
+        TestCase.assertEquals("cd home", history.evaluate("!cd "));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:233: error: cannot find symbol
+            TestCase.fail("IllegalArgumentException expected");
+            ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+/Users/adace/gitwork/jline3-demo/shell/src/test/java/org/apache/felix/gogo/shell/HistoryTest.java:238: error: cannot find symbol
+        TestCase.assertEquals("ls home", history.evaluate("!cd:s/cd/ls/"));
+        ^
+  symbol:   variable TestCase
+  location: class HistoryTest
+71 errors
+ FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 2.875 secs
