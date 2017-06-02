@@ -344,7 +344,7 @@ public class Shell {
                         .terminal(terminal)
                         .variables(((CommandSessionImpl) session).getVariables())
                         .completer(new org.jline.builtins.Completers.Completer(completionEnvironment))
-                        .highlighter(new Highlighter(session))
+//                        .highlighter(new Highlighter(session))
                         .parser(new Parser())
                         .expander(new Expander(session))
                         .build();

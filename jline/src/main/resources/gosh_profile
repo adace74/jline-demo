@@ -44,8 +44,8 @@ try {
   #.Format.Pipe = false
 
   # set prompt
-  prompt = 'g! '
-  \#rprompt = { (new java.text.SimpleDateFormat \'$'\u001B\\[90m'\'HH:mm:ss) format (new Date) }
+  prompt = 'helloworld> '
+#  \#rprompt = { (new java.text.SimpleDateFormat \'$'\u001B\\[90m'\'HH:mm:ss) format (new Date) }
   secondary-prompt-pattern = '%M%P > '
   # could also be written
   #  \#rprompt = { ${(qq)$(date +$'\u001B\[90m%T')} }
@@ -221,17 +221,17 @@ try {
   complete -c gogo:widget -s l --description "List user-defined widgets" -n '__option_not_present -N -A -D -U -l'
   complete -c gogo:widget -s a --description "With -l, list all widgets" -n '__option_not_present -l'
 
-  complete -c gogo:telnetd -e
-  complete -c gogo:telnetd -d "Telnet daemon"
-  complete -c gogo:telnetd -s i -l ip --description "Listening IP interface" -n '__option_not_present -i --ip'
-  complete -c gogo:telnetd -s p -l port --description "Listening IP port" -n '__option_not_present -p --port'
-  complete -c gogo:telnetd -a '[start stop status]'
+#  complete -c gogo:telnetd -e
+#  complete -c gogo:telnetd -d "Telnet daemon"
+#  complete -c gogo:telnetd -s i -l ip --description "Listening IP interface" -n '__option_not_present -i --ip'
+#  complete -c gogo:telnetd -s p -l port --description "Listening IP port" -n '__option_not_present -p --port'
+#  complete -c gogo:telnetd -a '[start stop status]'
 
-  complete -c gogo:sshd -e
-  complete -c gogo:sshd -d "SSH daemon"
-  complete -c gogo:sshd -s i -l ip --description "Listening IP interface" -n '__option_not_present -i --ip'
-  complete -c gogo:sshd -s p -l port --description "Listening IP port" -n '__option_not_present -p --port'
-  complete -c gogo:sshd -a '[start stop status]'
+#  complete -c gogo:sshd -e
+#  complete -c gogo:sshd -d "SSH daemon"
+#  complete -c gogo:sshd -s i -l ip --description "Listening IP interface" -n '__option_not_present -i --ip'
+#  complete -c gogo:sshd -s p -l port --description "Listening IP port" -n '__option_not_present -p --port'
+#  complete -c gogo:sshd -a '[start stop status]'
 
   complete -c gogo:tmux -e
   complete -c gogo:tmux -d "Terminal multiplexer"

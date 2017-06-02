@@ -41,7 +41,7 @@ import org.jline.utils.WCWidth;
 
 public class Highlighter extends DefaultHighlighter {
 
-    public static final String DEFAULT_HIGHLIGHTER_COLORS = "rs=35:st=32:nu=32:co=32:va=36:vn=36:fu=94:bf=91:re=90";
+    public static final String DEFAULT_HIGHLIGHTER_COLORS = "rs=32:st=32:nu=32:co=32:va=32:vn=32:fu=32:bf=32:re=32";
 
     private final CommandSession session;
 
