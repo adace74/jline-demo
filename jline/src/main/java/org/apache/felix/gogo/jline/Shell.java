@@ -287,7 +287,7 @@ public class Shell {
         session.put("#COLUMNS", (Function) (s, arguments) -> terminal.getWidth());
         session.put("#LINES", (Function) (s, arguments) -> terminal.getHeight());
         session.put("#PWD", (Function) (s, arguments) -> s.currentDir().toString());
-        session.put(LineReader.HISTORY_FILE, Paths.get(System.getProperty("user.home"), ".gogo.history"));
+        session.put(LineReader.HISTORY_FILE, Paths.get(System.getProperty("user.home"), ".hello_history"));
 
         if (tio != null) {
             PrintWriter writer = terminal.writer();
@@ -349,6 +349,7 @@ public class Shell {
                         .expander(new Expander(session))
                         .build();
                 reader.setOpt(LineReader.Option.AUTO_FRESH_LINE);
+                reader.unsetOpt(LineReader.Option.INSERT_TAB);
                 session.put(Shell.VAR_READER, reader);
                 session.put(Shell.VAR_COMPLETIONS, new HashMap());
             } else {
