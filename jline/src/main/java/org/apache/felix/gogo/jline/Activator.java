@@ -96,8 +96,8 @@ public class Activator implements BundleActivator, SingleServiceListener {
 
         // register commands
 
-        // dict.put(CommandProcessor.COMMAND_FUNCTION, Builtin.functions);
-        // regs.add(context.registerService(Builtin.class.getName(), new Builtin(), dict));
+        dict.put(CommandProcessor.COMMAND_FUNCTION, Builtin.functions);
+        regs.add(context.registerService(Builtin.class.getName(), new Builtin(), dict));
 
         // dict.put(CommandProcessor.COMMAND_FUNCTION, Procedural.functions);
         // regs.add(context.registerService(Procedural.class.getName(), new Procedural(), dict));
