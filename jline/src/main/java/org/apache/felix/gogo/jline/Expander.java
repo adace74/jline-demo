@@ -34,6 +34,7 @@ public class Expander extends DefaultExpander {
         this.session = session;
     }
 
+/*
     @Override
     public String expandVar(String word) {
         try {
@@ -53,5 +54,6 @@ public class Expander extends DefaultExpander {
         }
         return word;
     }
+*/
 
 }
