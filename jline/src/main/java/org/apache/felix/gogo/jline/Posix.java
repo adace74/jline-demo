@@ -108,14 +108,14 @@ public class Posix {
             Class cl = TTop.class;
             func = new String[] {
                     "cat", "echo", "grep", "sort", "sleep", "cd", "pwd", "ls",
-                    "less", "watch", "nano", "tmux",
+                    "less", "watch", "tmux",
                     "head", "tail", "clear", "wc",
                     "date", "ttop",
             };
         } catch (Throwable t) {
             func = new String[] {
                     "cat", "echo", "grep", "sort", "sleep", "cd", "pwd", "ls",
-                    "less", "watch", "nano", "tmux",
+                    "less", "watch", "tmux",
                     "head", "tail", "clear", "wc",
                     "date"
             };
@@ -207,9 +207,6 @@ public class Posix {
                 break;
             case "watch":
                 watch(session, process, argv);
-                break;
-            case "nano":
-                nano(session, process, argv);
                 break;
             case "tmux":
                 tmux(session, process, argv);
@@ -820,18 +817,6 @@ public class Posix {
 
     protected void ttop(final CommandSession session, Process process, String[] argv) throws Exception {
         TTop.ttop(Shell.getTerminal(session), process.out(), process.err(), argv);
-    }
-
-    protected void nano(final CommandSession session, Process process, String[] argv) throws Exception {
-        final String[] usage = {
-                "nano -  edit files",
-                "Usage: nano [FILES]",
-                "  -? --help                    Show help",
-        };
-        Options opt = parseOptions(session, usage, argv);
-        Nano edit = new Nano(Shell.getTerminal(session), session.currentDir());
-        edit.open(opt.args());
-        edit.run();
     }
 
     protected void watch(final CommandSession session, Process process, String[] argv) throws Exception {

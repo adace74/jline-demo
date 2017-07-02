@@ -99,9 +99,6 @@ public class Activator implements BundleActivator, SingleServiceListener {
         dict.put(CommandProcessor.COMMAND_FUNCTION, Builtin.functions);
         regs.add(context.registerService(Builtin.class.getName(), new Builtin(), dict));
 
-        // dict.put(CommandProcessor.COMMAND_FUNCTION, Procedural.functions);
-        // regs.add(context.registerService(Procedural.class.getName(), new Procedural(), dict));
-
         dict.put(CommandProcessor.COMMAND_FUNCTION, Posix.functions);
         regs.add(context.registerService(Posix.class.getName(), new Posix(processor), dict));
 
