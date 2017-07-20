@@ -24,3 +24,6 @@ hs_err_pid*
 # Build directories.
 jline/.gradle/
 jline/build/
+
+# MacOS tracking files.
+.DS_Store
