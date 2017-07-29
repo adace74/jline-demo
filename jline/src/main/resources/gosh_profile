@@ -103,7 +103,7 @@
   }
 
   # print welcome message, unless we're explicitly told not to...
-  #cat (new java.net.URL ($0 toURL) motd)
+  cat (new java.net.URL ($0 toURL) motd)
 #} {
 #    echo "$0: ERROR: $exception"
 #}

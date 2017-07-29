@@ -107,11 +107,11 @@ public class Posix {
         try {
             Class cl = TTop.class;
             func = new String[] {
-                    "pwd", "ls"
+                    "cat", "pwd", "ls"
             };
         } catch (Throwable t) {
             func = new String[] {
-                    "pwd", "ls"
+                    "cat", "pwd", "ls"
             };
         }
         functions = func;
@@ -172,93 +172,23 @@ public class Posix {
 
     protected Object run(CommandSession session, Process process, String[] argv) throws Exception {
         switch (argv[0]) {
+
+            case "cat":
+                cat(session, process, argv);
+                break;
+
             case "pwd":
                 pwd(session, process, argv);
                 break;
+
             case "ls":
                 ls(session, process, argv);
                 break;
         }
+
         return null;
     }
-
-    private String toJavaDateFormat(String format) {
-        // transform Unix format to Java SimpleDateFormat (if required)
-        StringBuilder sb = new StringBuilder();
-        boolean quote = false;
-        for (int i = 0; i < format.length(); i++) {
-            char c = format.charAt(i);
-            if (c == '%') {
-                if (i + 1 < format.length()) {
-                    if (quote) {
-                        sb.append('\'');
-                        quote = false;
-                    }
-                    c = format.charAt(++i);
-                    switch (c) {
-                        case '+':
-                        case 'A': sb.append("MMM EEE d HH:mm:ss yyyy"); break;
-                        case 'a': sb.append("EEE"); break;
-                        case 'B': sb.append("MMMMMMM"); break;
-                        case 'b': sb.append("MMM"); break;
-                        case 'C': sb.append("yy"); break;
-                        case 'c': sb.append("MMM EEE d HH:mm:ss yyyy"); break;
-                        case 'D': sb.append("MM/dd/yy"); break;
-                        case 'd': sb.append("dd"); break;
-                        case 'e': sb.append("dd"); break;
-                        case 'F': sb.append("yyyy-MM-dd"); break;
-                        case 'G': sb.append("YYYY"); break;
-                        case 'g': sb.append("YY"); break;
-                        case 'H': sb.append("HH"); break;
-                        case 'h': sb.append("MMM"); break;
-                        case 'I': sb.append("hh"); break;
-                        case 'j': sb.append("DDD"); break;
-                        case 'k': sb.append("HH"); break;
-                        case 'l': sb.append("hh"); break;
-                        case 'M': sb.append("mm"); break;
-                        case 'm': sb.append("MM"); break;
-                        case 'N': sb.append("S"); break;
-                        case 'n': sb.append("\n"); break;
-                        case 'P': sb.append("aa"); break;
-                        case 'p': sb.append("aa"); break;
-                        case 'r': sb.append("hh:mm:ss aa"); break;
-                        case 'R': sb.append("HH:mm"); break;
-                        case 'S': sb.append("ss"); break;
-                        case 's': sb.append("S"); break;
-                        case 'T': sb.append("HH:mm:ss"); break;
-                        case 't': sb.append("\t"); break;
-                        case 'U': sb.append("w"); break;
-                        case 'u': sb.append("u"); break;
-                        case 'V': sb.append("W"); break;
-                        case 'v': sb.append("dd-MMM-yyyy"); break;
-                        case 'W': sb.append("w"); break;
-                        case 'w': sb.append("u"); break;
-                        case 'X': sb.append("HH:mm:ss"); break;
-                        case 'x': sb.append("MM/dd/yy"); break;
-                        case 'Y': sb.append("yyyy"); break;
-                        case 'y': sb.append("yy"); break;
-                        case 'Z': sb.append("z"); break;
-                        case 'z': sb.append("X"); break;
-                        case '%': sb.append("%"); break;
-                    }
-                } else {
-                    if (!quote) {
-                        sb.append('\'');
-                    }
-                    sb.append(c);
-                    sb.append('\'');
-                }
-            } else {
-                if ((c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z') && !quote) {
-                    sb.append('\'');
-                    quote = true;
-                }
-                sb.append(c);
-            }
-        }
-        return sb.toString();
-    }
-
+    
     private void startShell(CommandSession session, Terminal terminal) {
         new Thread(() -> runShell(session, terminal), terminal.getName() + " shell").start();
     }
@@ -690,265 +620,7 @@ public class Posix {
             reader.close();
         }
     }
-
-    public static class SortComparator implements Comparator<String> {
-
-        private static Pattern fpPattern;
-
-        static {
-            final String Digits = "(\\p{Digit}+)";
-            final String HexDigits = "(\\p{XDigit}+)";
-            final String Exp = "[eE][+-]?" + Digits;
-            final String fpRegex = "([\\x00-\\x20]*[+-]?(NaN|Infinity|(((" + Digits + "(\\.)?(" + Digits + "?)(" + Exp + ")?)|(\\.(" + Digits + ")(" + Exp + ")?)|(((0[xX]" + HexDigits + "(\\.)?)|(0[xX]" + HexDigits + "?(\\.)" + HexDigits + "))[pP][+-]?" + Digits + "))" + "[fFdD]?))[\\x00-\\x20]*)(.*)";
-            fpPattern = Pattern.compile(fpRegex);
-        }
-
-        private boolean caseInsensitive;
-        private boolean reverse;
-        private boolean ignoreBlanks;
-        private boolean numeric;
-        private char separator;
-        private List<Key> sortKeys;
-
-        public SortComparator(boolean caseInsensitive,
-                              boolean reverse,
-                              boolean ignoreBlanks,
-                              boolean numeric,
-                              char separator,
-                              List<String> sortFields) {
-            this.caseInsensitive = caseInsensitive;
-            this.reverse = reverse;
-            this.separator = separator;
-            this.ignoreBlanks = ignoreBlanks;
-            this.numeric = numeric;
-            if (sortFields == null || sortFields.size() == 0) {
-                sortFields = new ArrayList<>();
-                sortFields.add("1");
-            }
-            sortKeys = sortFields.stream().map(Key::new).collect(Collectors.toList());
-        }
-
-        public int compare(String o1, String o2) {
-            int res = 0;
-
-            List<Integer> fi1 = getFieldIndexes(o1);
-            List<Integer> fi2 = getFieldIndexes(o2);
-            for (Key key : sortKeys) {
-                int[] k1 = getSortKey(o1, fi1, key);
-                int[] k2 = getSortKey(o2, fi2, key);
-                if (key.numeric) {
-                    Double d1 = getDouble(o1, k1[0], k1[1]);
-                    Double d2 = getDouble(o2, k2[0], k2[1]);
-                    res = d1.compareTo(d2);
-                } else {
-                    res = compareRegion(o1, k1[0], k1[1], o2, k2[0], k2[1], key.caseInsensitive);
-                }
-                if (res != 0) {
-                    if (key.reverse) {
-                        res = -res;
-                    }
-                    break;
-                }
-            }
-            return res;
-        }
-
-        protected Double getDouble(String s, int start, int end) {
-            Matcher m = fpPattern.matcher(s.substring(start, end));
-            m.find();
-            return new Double(s.substring(0, m.end(1)));
-        }
-
-        protected int compareRegion(String s1, int start1, int end1, String s2, int start2, int end2, boolean caseInsensitive) {
-            for (int i1 = start1, i2 = start2; i1 < end1 && i2 < end2; i1++, i2++) {
-                char c1 = s1.charAt(i1);
-                char c2 = s2.charAt(i2);
-                if (c1 != c2) {
-                    if (caseInsensitive) {
-                        c1 = Character.toUpperCase(c1);
-                        c2 = Character.toUpperCase(c2);
-                        if (c1 != c2) {
-                            c1 = Character.toLowerCase(c1);
-                            c2 = Character.toLowerCase(c2);
-                            if (c1 != c2) {
-                                return c1 - c2;
-                            }
-                        }
-                    } else {
-                        return c1 - c2;
-                    }
-                }
-            }
-            return end1 - end2;
-        }
-
-        protected int[] getSortKey(String str, List<Integer> fields, Key key) {
-            int start;
-            int end;
-            if (key.startField * 2 <= fields.size()) {
-                start = fields.get((key.startField - 1) * 2);
-                if (key.ignoreBlanksStart) {
-                    while (start < fields.get((key.startField - 1) * 2 + 1) && Character.isWhitespace(str.charAt(start))) {
-                        start++;
-                    }
-                }
-                if (key.startChar > 0) {
-                    start = Math.min(start + key.startChar - 1, fields.get((key.startField - 1) * 2 + 1));
-                }
-            } else {
-                start = 0;
-            }
-            if (key.endField > 0 && key.endField * 2 <= fields.size()) {
-                end = fields.get((key.endField - 1) * 2);
-                if (key.ignoreBlanksEnd) {
-                    while (end < fields.get((key.endField - 1) * 2 + 1) && Character.isWhitespace(str.charAt(end))) {
-                        end++;
-                    }
-                }
-                if (key.endChar > 0) {
-                    end = Math.min(end + key.endChar - 1, fields.get((key.endField - 1) * 2 + 1));
-                }
-            } else {
-                end = str.length();
-            }
-            return new int[]{start, end};
-        }
-
-        protected List<Integer> getFieldIndexes(String o) {
-            List<Integer> fields = new ArrayList<>();
-            if (o.length() > 0) {
-                if (separator == '\0') {
-                    fields.add(0);
-                    for (int idx = 1; idx < o.length(); idx++) {
-                        if (Character.isWhitespace(o.charAt(idx)) && !Character.isWhitespace(o.charAt(idx - 1))) {
-                            fields.add(idx - 1);
-                            fields.add(idx);
-                        }
-                    }
-                    fields.add(o.length() - 1);
-                } else {
-                    int last = -1;
-                    for (int idx = o.indexOf(separator); idx >= 0; idx = o.indexOf(separator, idx + 1)) {
-                        if (last >= 0) {
-                            fields.add(last);
-                            fields.add(idx - 1);
-                        } else if (idx > 0) {
-                            fields.add(0);
-                            fields.add(idx - 1);
-                        }
-                        last = idx + 1;
-                    }
-                    if (last < o.length()) {
-                        fields.add(last < 0 ? 0 : last);
-                        fields.add(o.length() - 1);
-                    }
-                }
-            }
-            return fields;
-        }
-
-        public class Key {
-            int startField;
-            int startChar;
-            int endField;
-            int endChar;
-            boolean ignoreBlanksStart;
-            boolean ignoreBlanksEnd;
-            boolean caseInsensitive;
-            boolean reverse;
-            boolean numeric;
-
-            public Key(String str) {
-                boolean modifiers = false;
-                boolean startPart = true;
-                boolean inField = true;
-                boolean inChar = false;
-                for (char c : str.toCharArray()) {
-                    switch (c) {
-                        case '0':
-                        case '1':
-                        case '2':
-                        case '3':
-                        case '4':
-                        case '5':
-                        case '6':
-                        case '7':
-                        case '8':
-                        case '9':
-                            if (!inField && !inChar) {
-                                throw new IllegalArgumentException("Bad field syntax: " + str);
-                            }
-                            if (startPart) {
-                                if (inChar) {
-                                    startChar = startChar * 10 + (c - '0');
-                                } else {
-                                    startField = startField * 10 + (c - '0');
-                                }
-                            } else {
-                                if (inChar) {
-                                    endChar = endChar * 10 + (c - '0');
-                                } else {
-                                    endField = endField * 10 + (c - '0');
-                                }
-                            }
-                            break;
-                        case '.':
-                            if (!inField) {
-                                throw new IllegalArgumentException("Bad field syntax: " + str);
-                            }
-                            inField = false;
-                            inChar = true;
-                            break;
-                        case 'n':
-                            inField = false;
-                            inChar = false;
-                            modifiers = true;
-                            numeric = true;
-                            break;
-                        case 'f':
-                            inField = false;
-                            inChar = false;
-                            modifiers = true;
-                            caseInsensitive = true;
-                            break;
-                        case 'r':
-                            inField = false;
-                            inChar = false;
-                            modifiers = true;
-                            reverse = true;
-                            break;
-                        case 'b':
-                            inField = false;
-                            inChar = false;
-                            modifiers = true;
-                            if (startPart) {
-                                ignoreBlanksStart = true;
-                            } else {
-                                ignoreBlanksEnd = true;
-                            }
-                            break;
-                        case ',':
-                            inField = true;
-                            inChar = false;
-                            startPart = false;
-                            break;
-                        default:
-                            throw new IllegalArgumentException("Bad field syntax: " + str);
-                    }
-                }
-                if (!modifiers) {
-                    ignoreBlanksStart = ignoreBlanksEnd = SortComparator.this.ignoreBlanks;
-                    reverse = SortComparator.this.reverse;
-                    caseInsensitive = SortComparator.this.caseInsensitive;
-                    numeric = SortComparator.this.numeric;
-                }
-                if (startField < 1) {
-                    throw new IllegalArgumentException("Bad field syntax: " + str);
-                }
-            }
-        }
-    }
-
+    
     private static LinkOption[] getLinkOptions(boolean followLinks) {
         if (followLinks) {
             return EMPTY_LINK_OPTIONS;
